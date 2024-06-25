@@ -31,7 +31,7 @@ impl Plugin for FarmPluginYaml {
     _context: &std::sync::Arc<farmfe_core::context::CompilationContext>,
     _hook_context: &farmfe_core::plugin::PluginHookContext,
   ) -> farmfe_core::error::Result<Option<farmfe_core::plugin::PluginLoadHookResult>> {
-    if param.resolved_path.ends_with(".yaml") {
+    if param.resolved_path.ends_with(".yaml") || param.resolved_path.ends_with(".yml") {
       return Ok(Some(PluginLoadHookResult {
         content: fs::read_file_utf8(param.resolved_path)?,
         module_type: ModuleType::Custom("yaml".to_string()),
