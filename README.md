@@ -13,7 +13,7 @@ pnpm install -D @jstors/farm-plugin-yaml
 
 export default defineConfig({
   plugins: [
-      'farm-plugin-yaml',
+      '@jstors/farm-plugin-yaml',
   ]
 });
 
