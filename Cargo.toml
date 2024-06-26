@@ -12,3 +12,9 @@ farmfe_toolkit_plugin_types = { version = "*" }
 farmfe_macro_plugin = { version = "*" }
 serde_yaml = { version = "*" }
 farmfe_toolkit={version = "*"}
+serde = { version = "*" }
+
+
+[dev-dependencies]
+farmfe_testing_helpers = {version = "*"}
+farmfe_compiler = { version = "*"}

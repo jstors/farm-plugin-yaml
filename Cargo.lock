@@ -315,6 +315,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "console"
+version = "0.15.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0e1f83fc076bd6dd27517eacdf25fef6c4dfe5f1d7448bafaaf3a26f13b5e4eb"
+dependencies = [
+ "encode_unicode",
+ "lazy_static",
+ "libc",
+ "unicode-width",
+ "windows-sys",
+]
+
+[[package]]
 name = "const_format"
 version = "0.2.32"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -447,6 +460,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3dca9240753cf90908d7e4aac30f630662b02aebaa1b58a3cadabdb23385b58b"
 
 [[package]]
+name = "encode_unicode"
+version = "0.3.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a357d28ed41a50f9c765dbfe56cbc04a64e53e5fc58ba79fbc34c10ef3df831f"
+
+[[package]]
 name = "enhanced-magic-string"
 version = "0.0.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -469,11 +488,41 @@ checksum = "5443807d6dff69373d433ab9ef5378ad8df50ca6298caf15de6e52e24aaf54d5"
 name = "farm_plugin_yaml"
 version = "0.0.0"
 dependencies = [
+ "farmfe_compiler",
  "farmfe_core",
  "farmfe_macro_plugin",
+ "farmfe_testing_helpers",
  "farmfe_toolkit",
  "farmfe_toolkit_plugin_types",
+ "serde",
  "serde_yaml",
+]
+
+[[package]]
+name = "farmfe_compiler"
+version = "0.0.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2ee30f90a48b561bbc07156f5c644fea1d5dbbb545d5af8b0cc8a1a1046ada3b"
+dependencies = [
+ "farmfe_core",
+ "farmfe_plugin_css",
+ "farmfe_plugin_define",
+ "farmfe_plugin_html",
+ "farmfe_plugin_json",
+ "farmfe_plugin_lazy_compilation",
+ "farmfe_plugin_minify",
+ "farmfe_plugin_partial_bundling",
+ "farmfe_plugin_polyfill",
+ "farmfe_plugin_progress",
+ "farmfe_plugin_resolve",
+ "farmfe_plugin_runtime",
+ "farmfe_plugin_script",
+ "farmfe_plugin_static_assets",
+ "farmfe_plugin_tree_shake",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+ "farmfe_utils",
+ "num_cpus",
 ]
 
 [[package]]
@@ -532,6 +581,188 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
+]
+
+[[package]]
+name = "farmfe_plugin_css"
+version = "0.0.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ac24c3281a8b9cea912cdcc5fd58f027808a4cd3bfd8ce242409285629501dd3"
+dependencies = [
+ "farmfe_core",
+ "farmfe_macro_cache_item",
+ "farmfe_toolkit",
+ "farmfe_utils",
+ "rkyv",
+]
+
+[[package]]
+name = "farmfe_plugin_define"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cd04c67f98b0aa6305dd88ea620bcd7640bdb8721a81fff806afb1de2f805244"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+ "farmfe_utils",
+]
+
+[[package]]
+name = "farmfe_plugin_html"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ab57fac21e68d721992a8d8b5d8517af2305cbe336c00ad4fdaf9a46ec9fe1e9"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+ "rkyv",
+]
+
+[[package]]
+name = "farmfe_plugin_json"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fe8caec25f43fe93da504e1b1953d2b30857fb8eebf4eb989a32732fb91a0d1d"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+]
+
+[[package]]
+name = "farmfe_plugin_lazy_compilation"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "727e0135ae392e098805e5b833789f46f430160c84729dd1a40d3916a1027edc"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+ "farmfe_utils",
+]
+
+[[package]]
+name = "farmfe_plugin_minify"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "38f496bb64309471d2c8a8f626cc6c2410ffbb2df0dcfa0d4b938e0bd9498220"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+]
+
+[[package]]
+name = "farmfe_plugin_partial_bundling"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "92094bb6dce43c2c44090ced6f8cfcb694e6b2132f2ba5f7846934a14b5e52ad"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+]
+
+[[package]]
+name = "farmfe_plugin_polyfill"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ace824f391418bfd084fd6dfabd70f06dcb548f7d92e786671d373a6be91eb58"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+]
+
+[[package]]
+name = "farmfe_plugin_progress"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4013db2ced578453660c82d424dab0642228780c75c33501d4c52c814054fc34"
+dependencies = [
+ "console",
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "indicatif",
+]
+
+[[package]]
+name = "farmfe_plugin_resolve"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6f7deabf3512ab42601ce89520a5fd458807f286cabcfec7195d96e4ac0a37d7"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+ "farmfe_utils",
+]
+
+[[package]]
+name = "farmfe_plugin_runtime"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c25438a3e3ceaf61c718737a1005b5ff2b8e2de33e6fc4e29bb3d69650b1eb4c"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+ "farmfe_utils",
+ "rkyv",
+]
+
+[[package]]
+name = "farmfe_plugin_script"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6936e83048b971cab5b824a071be9397e88f043331212ae9c9d2f886e0d4915f"
+dependencies = [
+ "farmfe_core",
+ "farmfe_swc_transformer_import_glob",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+ "farmfe_utils",
+]
+
+[[package]]
+name = "farmfe_plugin_static_assets"
+version = "0.0.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1d95303ef64f9b2e72ab7127746c315388c6ecd935b892147fb367e05d90c4a1"
+dependencies = [
+ "base64 0.21.7",
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+ "farmfe_utils",
+ "mime_guess",
+ "rkyv",
+]
+
+[[package]]
+name = "farmfe_plugin_tree_shake"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aeab5247a1e4dfb8e2717220a36c8716bbfdbd8e6f1408563cc49530bd9d4325"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+ "farmfe_utils",
+]
+
+[[package]]
+name = "farmfe_swc_transformer_import_glob"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3448bba86ba0805e9570e0ba95a78f27d1c4b02fc7780561041d989684a90483"
+dependencies = [
+ "farmfe_core",
+ "farmfe_testing_helpers",
+ "farmfe_toolkit",
+ "farmfe_utils",
 ]
 
 [[package]]
@@ -775,6 +1006,28 @@ dependencies = [
  "equivalent",
  "hashbrown 0.14.5",
  "serde",
+]
+
+[[package]]
+name = "indicatif"
+version = "0.17.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "763a5a8f45087d6bcea4222e7b72c291a054edf80e4ef6efd2a4979878c7bea3"
+dependencies = [
+ "console",
+ "instant",
+ "number_prefix",
+ "portable-atomic",
+ "unicode-width",
+]
+
+[[package]]
+name = "instant"
+version = "0.1.13"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e0242819d153cba4b4b05a5a8f2a7e9bbf97b6055b2a002b395c96b5ff3c0222"
+dependencies = [
+ "cfg-if",
 ]
 
 [[package]]
@@ -1022,6 +1275,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "mime"
+version = "0.3.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6877bb514081ee2a7ff5ef9de3281f14a4dd4bceac4c09388074a6b5df8a139a"
+
+[[package]]
+name = "mime_guess"
+version = "2.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4192263c238a5f0d0c6bfd21f336a313a4ce1c450542449ca191bb657b4642ef"
+dependencies = [
+ "mime",
+ "unicase",
+]
+
+[[package]]
 name = "minimal-lexical"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1099,6 +1368,12 @@ dependencies = [
  "hermit-abi 0.3.9",
  "libc",
 ]
+
+[[package]]
+name = "number_prefix"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "830b246a0e5f20af87141b25c173cd1b609bd7779a4617d6ec582abaf90870f3"
 
 [[package]]
 name = "object"
@@ -1256,6 +1531,12 @@ checksum = "a4a63d338dec139f56dacc692ca63ad35a6be6a797442479b55acd611d79e906"
 dependencies = [
  "nom",
 ]
+
+[[package]]
+name = "portable-atomic"
+version = "1.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7170ef9988bc169ba16dd36a7fa041e5c4cbeb6a35b76d4c03daded371eae7c0"
 
 [[package]]
 name = "ppv-lite86"
@@ -3038,6 +3319,15 @@ name = "typenum"
 version = "1.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "42ff0bf0c66b8238c6f3b578df37d0b7848e55df8577b3f74f92a69acceeb825"
+
+[[package]]
+name = "unicase"
+version = "2.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f7d2d4dafb69621809a81864c9c1b864479e1235c0dd4e199924b9742439ed89"
+dependencies = [
+ "version_check",
+]
 
 [[package]]
 name = "unicode-bidi"
