@@ -2,6 +2,8 @@
 
 This plugin provides a YAML parser for FARM.
 
+> Currently only simple YAML syntax parsing is supported.
+
 ## Usage
 
 ```bash
